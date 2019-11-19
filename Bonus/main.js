@@ -30,10 +30,10 @@ function filterMusicGenre(arrData, type) {
 	// 	}
 	// }
 
-	//filter vers alt
-	var filterArr = arrData.filter(cd => {
-		// return cd["genre"] === type;
+	//filter versione alt
+	var filterArr = arrData.filter(cd => {	
 		return cd.genre === type;
+		// return cd["genre"] === type; //alt selection
 	})
 
 	console.log(filterArr);
@@ -66,10 +66,7 @@ function printMusic(cdPoster, cdTitle, cdAuthor, cdYear, cdGenre) {
 
 $(document).ready(function () {
 
-
-
 	$('#select-genre').change(function () {
-		console.log('work');
 		console.log($(this).val());
 		var genre = $(this).val();
 
