@@ -31,11 +31,12 @@ function filterMusicGenre(arrData, type) {
 	// }
 
 	//filter versione alt
-	var filterArr = arrData.filter(cd => {	
+	var filterArr = arrData.filter(cd => {
 		return cd.genre === type;
 		// return cd["genre"] === type; //alt selection
-	})
-
+	});
+	// var filterArr = arrData.filter(cd => cd.genre === type )  //1row alt vers
+	
 	console.log(filterArr);
 	//resetto dati a schermo
 	$('.cds-container.container').empty();
