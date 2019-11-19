@@ -3,6 +3,7 @@ a disposizione una decina di dischi musicali.
 Servendoci di handlebars stampiamo tutto a schermo.
  */
 
+//request music array and send it to evaluateMusicData
 function getMusic() {
 	$.ajax({
 		url: "https://flynn.boolean.careers/exercises/api/array/music",
@@ -18,18 +19,18 @@ function getMusic() {
 	});
 }
 
+//ciclo l'array arrData, per ogni oggetto cd ottengo i valori richiesti e li invio a printMusic
 function evaluateMusicData(arrData) {
 	arrData.forEach(function (cd) {
-		// console.log('cd ', cd, "index ", index);
 		var cdPoster = cd.poster;
 		var cdTitle = cd.title;
 		var cdAuthor = cd.author;
 		var cdYear = cd.year;
-		// console.log(cdPoster);
 		printMusic(cdPoster, cdTitle, cdAuthor, cdYear);
 	})
 }
 
+//riceve valori da evMusicData, per ogni set di valori crea una struttura handlebars e la aggiunge all'html
 function printMusic(cdPoster, cdTitle, cdAuthor, cdYear) {
 	var source = document.getElementById('music-template').innerHTML;
 	var musicTemplate = Handlebars.compile(source);
