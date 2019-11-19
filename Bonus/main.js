@@ -13,7 +13,6 @@ function getMusic(genre) {
 		success: function (data) {
 			console.log('success', data);
 			var arrMusic = data.response;
-			// evaluateMusicData(arrMusic);
 			filterMusicGenre(arrMusic, genre);
 		},
 		error: function (error) {
@@ -22,18 +21,25 @@ function getMusic(genre) {
 	});
 }
 
+//filtro l'array in base al genere musicale
 function filterMusicGenre(arrData, type) {
-	var filterArr = [];
-	for (i = 0; i < arrData.length; i++) {
-		if (arrData[i].genre === type) {
-			filterArr.push(arrData[i]);
-		}
-	}
-	// var filterArr = arrData.filter(function(type) {
-	// 	return type =
-	// })
+	// var filterArr = [];
+	// for (i = 0; i < arrData.length; i++) {
+	// 	if (arrData[i].genre === type) {
+	// 		filterArr.push(arrData[i]);
+	// 	}
+	// }
+
+	//filter vers alt
+	var filterArr = arrData.filter(cd => {
+		// return cd["genre"] === type;
+		return cd.genre === type;
+	})
+
 	console.log(filterArr);
+	//resetto dati a schermo
 	$('.cds-container.container').empty();
+	//elaboro l'array filtrato
 	evaluateMusicData(filterArr);
 }
 
