@@ -23,12 +23,15 @@ function evaluateMusicData(arrData) {
 		// console.log('cd ', cd, "index ", index);
 		var cdPoster = cd.poster;
 		var cdTitle = cd.title;
-		console.log(cdPoster);
+		var cdAuthor = cd.author;
+		var cdYear = cd.year;
+		// console.log(cdPoster);
+		printMusic(cdPoster, cdTitle, cdAuthor, cdYear);
 	})
 }
 
 function printMusic(cdPoster, cdTitle, cdAuthor, cdYear) {
-	var source = document.getElementById('handle-addContact-template').innerHTML;
+	var source = document.getElementById('music-template').innerHTML;
 	var musicTemplate = Handlebars.compile(source);
 	var musicData = { cdPoster: cdPoster, cdTitle: cdTitle, cdAuthor: cdAuthor, cdYear: cdYear };
 	var htmlMusicData = musicTemplate(musicData);
@@ -36,6 +39,6 @@ function printMusic(cdPoster, cdTitle, cdAuthor, cdYear) {
 }
 
 $(document).ready(function() {
-	//Code
+
 	getMusic();
 });
